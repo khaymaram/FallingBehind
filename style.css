@@ -1,0 +1,11 @@
+/* homepage style */
+body {
+    background-image: url('assets/home-bg.jpg');
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
