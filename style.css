@@ -49,10 +49,10 @@ body {
     height: 110%;
     background-color: #A50715;
     position: fixed;
-    padding-top: 10px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .nav-button{
@@ -73,6 +73,7 @@ body {
     padding-top: 0px;
 }
 
-#mywalks-title{
+#mywalks-title, #walkrecs-title, #profile-title{
     padding-top: 30px;
 }
+
