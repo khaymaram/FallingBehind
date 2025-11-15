@@ -8,4 +8,28 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;  
+}
+
+.title {
+    font-family: 'Pixelify Sans';
+    font-size: 70px;
+    color: #A50715;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 36px;
+    cursor: pointer;
+    border: none;
+    border-radius: 18px;
+    background-color: #E74250;
+    color: white;
+    font-family: 'Pixelify Sans';
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #C0392B;
 }
