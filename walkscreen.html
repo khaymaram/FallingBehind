@@ -11,6 +11,22 @@
 <body>
     <h1 class="title">My Walks</h1>
     <img src="assets/leaf.png" alt="leaf">
-    <button class = "button" id="AddWalk">Add Walk</button>
+    <button onclick = "openPopUp()" class = "button" id="AddWalk">Add Walk</button>
+    <div id="WalkInfoPopup" class = "form-popup">
+        <form action = "/submit-form" method = "post" class = "form-container">
+            <h2>Add a Walk!</h2>
+            <label for = "walkDate">Date: </label>
+            <input type = "date" id = "walkDate">
+
+            <label for = "walkTime">Walk Time: </label>
+            <input type = "text" id = "walkTime" name = "walkTime">
+
+            <label for = "walkDistance">Distance: </label>
+            <input type = "text" id = "walkDistance" name = "walkDistance">
+
+            <button onclick = "closePopup()" id="RecordWalk" class = "submit">Record Walk</button>
+        </form> 
+    </div>
 </body>
 <script src="functions.js"></script>
+</html>
