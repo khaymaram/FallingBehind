@@ -1,15 +1,9 @@
-/* homepage style */
+/* overall style */
 body {
     background-image: url('assets/home-bg.jpg');
     background-size: cover;
-    font-family: 'Arial', sans-serif;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;  
+    padding-top: 30px;
 }
 
 .title {
@@ -32,4 +26,14 @@ body {
 
 .button:hover {
     background-color: #C0392B;
+}
+
+/* homepage style */
+.homepage-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center;
+    height: 100vh;
+    margin: 0;  
 }
