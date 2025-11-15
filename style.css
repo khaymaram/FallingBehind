@@ -1,13 +1,16 @@
 /* overall style */
+html{
+    font-family: 'Pixelify Sans';
+}
 body {
     background-image: url('assets/home-bg.jpg');
     background-size: cover;
     text-align: center;
-    padding-top: 30px;
+    margin: 0;
+    padding: 0;
 }
 
 .title {
-    font-family: 'Pixelify Sans';
     font-size: 70px;
     color: #A50715;
 }
@@ -24,14 +27,10 @@ body {
     transition: background-color 0.3s ease;
 }
 
-#AddWalk {
-    margin-top: 100px;
-    margin-left: 1200px;
-}
-
 .button:hover {
     background-color: #C0392B;
 }
+
 
 /* homepage style */
 .homepage-content {
@@ -41,4 +40,39 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;  
+}
+
+/* my walks style */
+#navbar{
+    margin-top: -50px;
+    width: 150px;
+    height: 110%;
+    background-color: #A50715;
+    position: fixed;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-button{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    font-family: 'Pixelify Sans';
+}
+
+.my-walks-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;  
+    padding-top: 0px;
+}
+
+#mywalks-title{
+    padding-top: 30px;
 }
