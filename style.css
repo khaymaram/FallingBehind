@@ -24,6 +24,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
+#AddWalk {
+    margin-top: 600px;
+    margin-left: 1200px;
+}
+
 .button:hover {
     background-color: #C0392B;
 }
