@@ -1,11 +1,90 @@
+<<<<<<< Updated upstream
 /* homepage style */
+=======
+/* overall style */
+html{
+    font-family: 'Pixelify Sans';
+}
+>>>>>>> Stashed changes
 body {
     background-image: url('assets/home-bg.jpg');
     background-size: cover;
     font-family: 'Arial', sans-serif;
     text-align: center;
+<<<<<<< Updated upstream
+=======
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 70px;
+    color: #A50715;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 36px;
+    cursor: pointer;
+    border: none;
+    border-radius: 18px;
+    background-color: #E74250;
+    color: white;
+    font-family: 'Pixelify Sans';
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #C0392B;
+}
+
+
+/* homepage style */
+.homepage-content {
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+<<<<<<< Updated upstream
+=======
+    height: 100vh;
+    margin: 0;  
+}
+
+/* my walks style */
+#navbar{
+    margin-top: -50px;
+    width: 150px;
+    height: 110%;
+    background-color: #A50715;
+    position: fixed;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-button{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    font-family: 'Pixelify Sans';
+    z-index: 100000000;
+}
+
+.my-walks-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;  
+    padding-top: 0px;
+}
+
+#mywalks-title, #profile-title, #walkrecs-title{
+    padding-top: 30px;
+>>>>>>> Stashed changes
 }
