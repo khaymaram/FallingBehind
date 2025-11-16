@@ -229,12 +229,17 @@ body {
 
 .profile-row {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: stretch;    
-    gap: 15px;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px; 
 }
+
+.profile-row h1,
+.profile-row p {
+    margin: 0; 
+}
+
 
 .walk-card {
     position: relative;
