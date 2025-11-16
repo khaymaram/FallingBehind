@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
     <title>Walk Screen</title>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="my-walks-content">
         <div id="navbar">
@@ -17,9 +19,28 @@
             <img src="assets/falling-leaves-2.gif" id="gif2">
             <img src="assets/falling-leaves-2.gif">
         </div>
-        <h1 class="title" id="mywalks-title">My Walks</h1>
-        <img src="assets/leaf.png" alt="leaf">
+        <div class = "popup-overlay"> 
+            <h1 class="title" id="mywalks-title">My Walks</h1>
+            <img src="assets/leaf.png" alt="leaf">
+            <button onclick="openPopUp()" class="button" id="AddWalk">Add Walk</button>
+            <div id="WalkInfoPopup" class="form-popup">
+                <form action="/submit-form" method="post" class="form-container">
+                    <p>Add a Walk!</p>
+                    <label for="walkDate">Date: </label>
+                    <input type="date" id="walkDate">
+                    <br><br>
+                    <label for="walkTime">Walk Time: </label>
+                    <input type="text" id="walkTime" name="walkTime">
+                    <br><br>
+                    <label for="walkDistance">Distance: </label>
+                    <input type="text" id="walkDistance" name="walkDistance">
+                    <br><br>
+                    <button id="RecordWalk" class="submit">Record Walk</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="functions.js"></script>
 </body>
+
 </html>
