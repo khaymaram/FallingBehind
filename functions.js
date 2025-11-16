@@ -1,4 +1,3 @@
-// navigate to walks screen when start button is clicked
 const start = document.getElementById('start');
 const popup = document.getElementById('start-popup');
 const popupBtn = document.getElementById('popup-button');
@@ -8,7 +7,6 @@ function setUsername(){
     const input = document.getElementById('enter-name').value;
     username = input;
     localStorage.setItem("username", username);
-
 }
 
 function updateName(){
