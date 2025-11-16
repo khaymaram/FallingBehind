@@ -224,7 +224,7 @@ body {
     align-items: flex-start;
     font-size: 1em;
     margin-left: 1em;
-    gap: 20px;
+    gap: 25px;
 }
 
 .profile-row {
@@ -239,6 +239,62 @@ body {
 .profile-row p {
     margin: 0; 
 }
+
+/* Progress Bar Styles */
+.progress-stats {
+    font-size: 20px;
+    color: white;
+    margin: 10px 0;
+}
+
+.progress-stats span {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    margin: 10px 0;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 15px;
+    transition: width 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.congrats-message {
+    font-size: 22px;
+    color: #FFD700;
+    margin-top: 10px;
+    font-weight: bold;
+    display: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.congrats-message.show {
+    display: block;
+    animation: celebrate 1s ease;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 
 /* leaf style */
 .walk-card {
