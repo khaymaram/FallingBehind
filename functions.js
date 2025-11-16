@@ -2,17 +2,23 @@ const WalkInfoPopup = document.getElementById("WalkInfoPopup");
 const openBtn = document.getElementById("AddWalk");
 const closeBtn = document.getElementById("RecordWalk");
 const overlay = document.getElementById("WalkOverlay");
-const startPopup = document.getElementById("start-popup");
-const popupBtn = document.getElementById('popup-button');
 
 let username = "";
+let goal = "";
 
 // Save username
 function setUsername(){
     const input = document.getElementById('enter-name').value;
     username = input;
     localStorage.setItem("username", username);
-    updateName();  // <-- You forgot to update after saving
+    updateName();  
+}
+
+function setGoal(){
+    const input = document.getElementById('enter-goal').value;
+    goal = input;
+    localStorage.setItem("goal", goal);
+    updateGoal();  
 }
 
 // Apply username to the profile page
@@ -21,23 +27,15 @@ function updateName(){
     if (nameBox) nameBox.innerText = username;
 }
 
+function updateGoal(){
+    const goalBox = document.getElementById('profile-goal');
+    if (goalBox) goalBox.innerText = `Goal: ${goal} miles`;
+}
+
 // PAGE NAVIGATION
 function navigateToWalkScreen() {
     window.location.href = 'walkscreen.html';
 }
-
-openBtn.addEventListener("click", () => {
-    overlay.style.display = "flex";
-});
-
-closeBtn.addEventListener("click", (e) => {
-    
-    e.preventDefault();
-    overlay.style.display = "none";
-    recordWalk();
-    displayWalks();
-    
-});
 
 function navigateToRecsScreen() {
     window.location.href = 'walkrecs.html';
@@ -47,68 +45,27 @@ function navigateToProfileScreen() {
     window.location.href = 'profile.html';
 }
 
-// START-PAGE POPUP
-if (document.getElementById("start")) {
-    document.getElementById("start").addEventListener("click", () => {
-        if (startPopup) startPopup.style.display = "flex";
-    });
-}
-
-if (popupBtn) {
-    popupBtn.addEventListener('click', () => {
-        setUsername();     // Save name
-        navigateToWalkScreen();  // Move to next page
-    });
-}
-
-// DOM READY
-document.addEventListener("DOMContentLoaded", () => {
-    // NAV BUTTONS
-    const mywalks = document.getElementById('mywalks-tab');
-    const walkrecs = document.getElementById('walkrecs-tab');
-    const profile = document.getElementById('profile-tab');
-
-    if (mywalks) mywalks.addEventListener('click', navigateToWalkScreen);
-    if (walkrecs) walkrecs.addEventListener('click', navigateToRecsScreen);
-    if (profile) profile.addEventListener('click', navigateToProfileScreen);
-
-    // LOAD NAME FROM STORAGE
-    const storedName = localStorage.getItem("username");
-    if (storedName) {
-        username = storedName;
-        updateName();
-    }
-});
-
-// Function for external usage
-function openStartPopup(){
-    if (startPopup) startPopup.style.display = 'flex';
-}
-
-if (startPopup) {
-    startPopup.addEventListener('click', openStartPopup);
-}
-
 function recordWalk() {
-    const date = document.getElementById("walkDate").value
-    const time = document.getElementById("walkTime").value
-    const distance = document.getElementById("walkDistance").value
+    const date = document.getElementById("walkDate").value;
+    const time = document.getElementById("walkTime").value;
+    const distance = document.getElementById("walkDistance").value;
 
-    const walk = { /* walk object */
+    const walk = {
         date, 
         time, 
         distance
     };
-    localStorage.setItem("oof", 1)
 
     let walks = JSON.parse(localStorage.getItem("walks")) || [];
-    walks.push(walk)
-    localStorage.setItem("walks", JSON.stringify(walks))
+    walks.push(walk);
+    localStorage.setItem("walks", JSON.stringify(walks));
 }
 
 function displayWalks() {
-    const container = document.getElementById("walk-list"); // a div you'll create to hold walks
-    container.innerHTML = ""; // clear current walks
+    const container = document.getElementById("walk-list");
+    if (!container) return;
+    
+    container.innerHTML = "";
 
     let walks = JSON.parse(localStorage.getItem("walks")) || [];
 
@@ -127,3 +84,66 @@ function displayWalks() {
         container.appendChild(card);
     });
 }
+
+// DOM READY - All event listeners that need DOM elements go here
+document.addEventListener("DOMContentLoaded", () => {
+    // GET POPUP ELEMENTS (after DOM is ready)
+    const startPopup = document.getElementById("start-popup");
+    const popupBtn = document.getElementById('popup-button');
+    const startButton = document.getElementById("start");
+
+    // START BUTTON - show popup
+    if (startButton && startPopup) {
+        startButton.addEventListener("click", () => {
+            startPopup.style.display = "flex";
+        });
+    }
+
+    // POPUP SUBMIT BUTTON - save and navigate
+    if (popupBtn) {
+        popupBtn.addEventListener('click', () => {
+            setUsername();
+            setGoal();
+            navigateToWalkScreen();
+        });
+    }
+
+    // ADD WALK BUTTON - show overlay
+    if (openBtn && overlay) {
+        openBtn.addEventListener("click", () => {
+            overlay.style.display = "flex";
+        });
+    }
+
+    // RECORD WALK BUTTON - close overlay and save walk
+    if (closeBtn && overlay) {
+        closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            overlay.style.display = "none";
+            recordWalk();
+            displayWalks();
+        });
+    }
+
+    // NAV BUTTONS
+    const mywalks = document.getElementById('mywalks-tab');
+    const walkrecs = document.getElementById('walkrecs-tab');
+    const profile = document.getElementById('profile-tab');
+
+    if (mywalks) mywalks.addEventListener('click', navigateToWalkScreen);
+    if (walkrecs) walkrecs.addEventListener('click', navigateToRecsScreen);
+    if (profile) profile.addEventListener('click', navigateToProfileScreen);
+
+    // LOAD NAME FROM STORAGE
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+        username = storedName;
+        updateName();
+    }
+
+    const storedGoal = localStorage.getItem("goal");
+    if (storedGoal) {
+        goal = storedGoal;
+        updateGoal();
+    }
+});
