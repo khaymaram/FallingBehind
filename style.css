@@ -231,7 +231,7 @@ body {
     flex-direction: column; 
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 5px; 
+    gap: 3px; 
 }
 
 .profile-row h1,
