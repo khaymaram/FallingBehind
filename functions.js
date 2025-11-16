@@ -7,7 +7,8 @@ let username = "";
 function setUsername(){
     const input = document.getElementById('enter-name').value;
     username = input;
-    updateName();
+    localStorage.setItem("username", username);
+
 }
 
 function updateName(){
@@ -35,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mywalks) mywalks.addEventListener('click', navigateToWalkScreen);
     if (walkrecs) walkrecs.addEventListener('click', navigateToRecsScreen);
     if (profile) profile.addEventListener('click', navigateToProfileScreen);
+
+    const name = localStorage.getItem("username");
+    if (name) {
+        document.getElementById('profile-name').innerText = name;
+    }
 });
 
 function openStartPopup(){
@@ -45,7 +51,10 @@ if (start) {
     start.addEventListener('click', openStartPopup);
 }
 
-popupBtn.addEventListener('click', navigateToWalkScreen);
+popupBtn.addEventListener('click', () => {
+    setUsername();        
+    navigateToWalkScreen();
+});
 
 
 
