@@ -18,7 +18,7 @@ function setGoal(){
     const input = document.getElementById('enter-goal').value;
     goal = input;
     localStorage.setItem("goal", goal);
-    updateGoal();  
+    updateProgressBar();  // Update progress bar instead of updateGoal
 }
 
 // Apply username to the profile page
@@ -27,9 +27,35 @@ function updateName(){
     if (nameBox) nameBox.innerText = username;
 }
 
-function updateGoal(){
-    const goalBox = document.getElementById('profile-goal');
-    if (goalBox) goalBox.innerText = `Goal: ${goal} miles`;
+// Update progress bar with walking goal progress
+function updateProgressBar() {
+    const walks = JSON.parse(localStorage.getItem("walks")) || [];
+    const totalMiles = walks.reduce((sum, walk) => sum + parseFloat(walk.distance || 0), 0);
+    const goalMiles = parseFloat(localStorage.getItem("goal")) || 100;
+    
+    const percentage = Math.min(100, (totalMiles / goalMiles) * 100);
+    const remaining = Math.max(0, goalMiles - totalMiles);
+
+    const currentMilesEl = document.getElementById('current-miles');
+    const goalMilesEl = document.getElementById('goal-miles');
+    const remainingMilesEl = document.getElementById('remaining-miles');
+    const fillElement = document.getElementById('progress-fill');
+    const congratsElement = document.getElementById('congrats');
+
+    if (currentMilesEl) currentMilesEl.textContent = totalMiles.toFixed(1);
+    if (goalMilesEl) goalMilesEl.textContent = goalMiles;
+    if (remainingMilesEl) remainingMilesEl.textContent = remaining.toFixed(1);
+
+    if (fillElement) {
+        fillElement.style.width = percentage + '%';
+        fillElement.textContent = Math.round(percentage) + '%';
+    }
+
+    if (congratsElement && percentage >= 100) {
+        congratsElement.classList.add('show');
+    } else if (congratsElement) {
+        congratsElement.classList.remove('show');
+    }
 }
 
 // PAGE NAVIGATION
@@ -122,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.style.display = "none";
             recordWalk();
             displayWalks();
+            updateProgressBar(); // Update progress bar after recording walk
         });
     }
 
@@ -144,6 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const storedGoal = localStorage.getItem("goal");
     if (storedGoal) {
         goal = storedGoal;
-        updateGoal();
+        updateProgressBar(); // Update progress bar on page load
     }
 });

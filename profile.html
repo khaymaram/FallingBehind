@@ -21,17 +21,36 @@
         </div>
         <h1 class="title" id="profile-title">My Profile</h1>
         <div class="profile-card">
-            <div class="profile-row">
-                <h1 id="profile-name"></h1>
-                <p id="profile-goal"></p>
+            <div style="display: flex; flex-direction: row; align-items: flex-start; gap:20px" >
+                <img src="assets/pfp.svg" width="100px" style="margin-top: 15px;"/>
+                <div class="profile-row">
+                    <h1 id="profile-name"></h1>
+                    <div style="width: 100%;">
+                        <div class="progress-stats">
+                            Goal: <span id="current-miles">0</span> / <span id="goal-miles">0</span> miles
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+                                0%
+                            </div>
+                        </div>
+                        <div class="progress-stats" style="font-size: 18px;">
+                            <span id="remaining-miles">0</span> miles to go!
+                        </div>
+                        <div class="congrats-message" id="congrats">
+                            🎉 Goal Reached! 🎉
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="profile-row">
-            <h1 id="badges">BADGES</h1>
+                <h1 id="badges">BADGES</h1>
                 <div id="badge-content">
                     <p>Complete milestones to earn badges!</p>
                 </div>
             </div>
-   
+
         </div>
 
     </div>
