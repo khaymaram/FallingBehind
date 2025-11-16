@@ -27,7 +27,8 @@
                     <h1 id="profile-name"></h1>
                     <div style="width: 100%;">
                         <div class="progress-stats">
-                            Goal: <span id="current-miles">0</span> / <span id="goal-miles">0</span> miles
+                            Goal: <span id="current-miles"> 0</span> / <span id="goal-miles">0</span> miles
+                            <button class="edit-goal-btn" id="edit-goal-btn">✏️</button>
                         </div>
                         <div class="progress-bar-bg">
                             <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
@@ -42,6 +43,17 @@
                         </div>
                     </div>
                 </div>
+                <!-- STATS SECTION -->
+                <div class="walk-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-walks">0</div>
+                        <div class="stat-label">Walks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-time">0</div>
+                        <div class="stat-label">Minutes</div>
+                    </div>
+                </div>
             </div>
 
             <div class="profile-row">
@@ -54,6 +66,22 @@
         </div>
 
     </div>
+    
+    <!-- EDIT GOAL POPUP -->
+    <div class="popup" id="edit-goal-popup">
+        <div class="popup-content">
+            <h2 style="margin-top: 0;">Edit Your Goal</h2>
+            <div class="start-popup-input">
+                <label for="new-goal">New Miles Goal:</label>
+                <input type="number" id="new-goal" min="1">
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="button" id="save-goal-btn">Save</button>
+                <button class="button" id="cancel-goal-btn" style="background-color: #999;">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="functions.js"></script>
 </body>
 
