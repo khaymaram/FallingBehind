@@ -21,20 +21,67 @@
         </div>
         <h1 class="title" id="profile-title">My Profile</h1>
         <div class="profile-card">
-            <div class="profile-row">
-                <h1 id="profile-name"></h1>
-                <p id="profile-goal"></p>
-            </div>
-            <div class="profile-row">
-            <h1 id="badges">BADGES</h1>
-                <div id="badge-content">
-                    <p>Complete milestones to earn badges!</p>
+            <div style="display: flex; flex-direction: row; align-items: flex-start; gap:20px" >
+                <img src="assets/pfp.svg" width="100px" style="margin-top: 15px;"/>
+                <div class="profile-row">
+                    <h1 id="profile-name"></h1>
+                    <div style="width: 100%;">
+                        <div class="progress-stats">
+                            Goal: <span id="current-miles"> 0</span> / <span id="goal-miles">0</span> miles
+                            <button class="edit-goal-btn" id="edit-goal-btn">✏️</button>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progress-fill" style="width: 0%;">
+                                0%
+                            </div>
+                        </div>
+                        <div class="progress-stats" style="font-size: 18px;">
+                            <span id="remaining-miles">0</span> miles to go!
+                        </div>
+                        <div class="congrats-message" id="congrats">
+                            🎉 Goal Reached! 🎉
+                        </div>
+                    </div>
+                </div>
+                <!-- STATS SECTION -->
+                <div class="walk-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-walks">0</div>
+                        <div class="stat-label">Walks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-time">0</div>
+                        <div class="stat-label">Minutes</div>
+                    </div>
                 </div>
             </div>
-   
+
+            <div class="profile-row">
+                <h1 id="badges">BADGES</h1>
+                <p>Complete milestones to earn badges!</p>
+                <div id="badge-content">
+                </div>
+            </div>
+
         </div>
 
     </div>
+    
+    <!-- EDIT GOAL POPUP -->
+    <div class="popup" id="edit-goal-popup">
+        <div class="popup-content">
+            <h2 style="margin-top: 0;">Edit Your Goal</h2>
+            <div class="start-popup-input">
+                <label for="new-goal">New Miles Goal:</label>
+                <input type="number" id="new-goal" min="1">
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="button" id="save-goal-btn">Save</button>
+                <button class="button" id="cancel-goal-btn" style="background-color: #999;">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="functions.js"></script>
 </body>
 
