@@ -35,6 +35,53 @@ body {
     margin-top: 100px;
     margin-left: 1200px;
 }
+.popup{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.573); 
+}
+
+.popup-content {
+    background-color: #A50715;
+    color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: none;
+    border-radius: 18px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Optional: maximum width */
+    position: relative; /* For positioning the close button */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 30px;
+}
+
+.popup-content button{
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px 25px;
+}
+
+.popup-content input{
+    font-family: 'Pixelify Sans';
+    font-size: 16px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    padding-left: 10px;
+    font-weight: 500;
+}
+
 
 /* homepage style */
 .homepage-content {
@@ -46,6 +93,7 @@ body {
     margin: 0;  
 }
 
+
 /* my walks style */
 #navbar{
     margin-top: -50px;
@@ -53,7 +101,7 @@ body {
     height: 110%;
     background-color: #A50715;
     position: fixed;
-    padding-top: 20px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -67,6 +115,10 @@ body {
     border: none;
     background: none;
     font-family: 'Pixelify Sans';
+}
+
+#gif2 {
+  transform: scaleX(-1);
 }
 
 .my-walks-content {
