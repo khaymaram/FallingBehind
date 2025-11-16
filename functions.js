@@ -2,7 +2,7 @@ const WalkInfoPopup = document.getElementById("WalkInfoPopup");
 const openBtn = document.getElementById("AddWalk");
 const closeBtn = document.getElementById("RecordWalk");
 const overlay = document.getElementById("WalkOverlay");
-const startPopup = document.getElementById('start-popup');
+const startPopup = document.getElementById("start-popup");
 const popupBtn = document.getElementById('popup-button');
 
 let username = "";
@@ -31,10 +31,12 @@ openBtn.addEventListener("click", () => {
 });
 
 closeBtn.addEventListener("click", (e) => {
-    e.preventDefault(); 
+    
+    e.preventDefault();
     overlay.style.display = "none";
     recordWalk();
     displayWalks();
+    
 });
 
 function navigateToRecsScreen() {
@@ -45,22 +47,9 @@ function navigateToProfileScreen() {
     window.location.href = 'profile.html';
 }
 
-// RECORD-WALK POPUP
-if (openBtn) {
-    openBtn.addEventListener("click", () => {
-        overlay.style.display = "flex";
-    });
-}
-
-if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        overlay.style.display = "none";
-    });
-}
-
 // START-PAGE POPUP
-if (document.getElementById('start')) {
-    document.getElementById('start').addEventListener("click", () => {
+if (document.getElementById("start")) {
+    document.getElementById("start").addEventListener("click", () => {
         if (startPopup) startPopup.style.display = "flex";
     });
 }
@@ -71,7 +60,6 @@ if (popupBtn) {
         navigateToWalkScreen();  // Move to next page
     });
 }
-
 
 // DOM READY
 document.addEventListener("DOMContentLoaded", () => {
@@ -97,12 +85,12 @@ function openStartPopup(){
     if (startPopup) startPopup.style.display = 'flex';
 }
 
-if (start) {
-    start.addEventListener('click', openStartPopup);
+if (startPopup) {
+    startPopup.addEventListener('click', openStartPopup);
 }
 
 function recordWalk() {
-    const date = document.getElementById("walkData").value
+    const date = document.getElementById("walkDate").value
     const time = document.getElementById("walkTime").value
     const distance = document.getElementById("walkDistance").value
 
@@ -111,6 +99,7 @@ function recordWalk() {
         time, 
         distance
     };
+    localStorage.setItem("oof", 1)
 
     let walks = JSON.parse(localStorage.getItem("walks")) || [];
     walks.push(walk)
@@ -123,15 +112,16 @@ function displayWalks() {
 
     let walks = JSON.parse(localStorage.getItem("walks")) || [];
 
-    walks.forEach((walk, index) => {
+    walks.forEach((walk) => {
         const card = document.createElement("div");
         card.classList.add("walk-card");
 
         card.innerHTML = `
-            <h3>Walk ${index + 1}</h3>
-            <p>Date: ${walk.date}</p>
-            <p>Time: ${walk.time}</p>
-            <p>Distance: ${walk.distance}</p>
+            <div class="walk-text">
+                <p>Date: ${walk.date}</p>
+                <p>Time: ${walk.time}</p>
+                <p>Distance: ${walk.distance}</p>
+            </div>
         `;
 
         container.appendChild(card);

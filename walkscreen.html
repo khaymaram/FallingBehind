@@ -20,7 +20,7 @@
             <img src="assets/falling-leaves-2.gif">
         </div>
         <h1 class="title" id="mywalks-title">My Walks</h1>
-        <img src="assets/leaf.png" alt="leaf">
+        <div id="walk-list"></div>
         <button onclick="openPopUp()" class="button" id="AddWalk">Add Walk</button>
     </div>
     <div id="WalkOverlay" class="popup-overlay">
@@ -41,6 +41,9 @@
         </div>
     </div>
     <script src="functions.js"></script>
+    <script>
+        displayWalks();
+    </script>
 </body>
 
 </html>

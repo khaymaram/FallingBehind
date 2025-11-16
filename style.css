@@ -5,6 +5,7 @@ html{
 }
 body {
     background-image: url('assets/home-bg.jpg');
+    background-attachment: fixed;
     background-size: cover;
     text-align: center;
     margin: 0;
@@ -220,4 +221,31 @@ body {
     justify-content: center;
     align-items: stretch;    
     gap: 15px;
+}
+
+.walk-card {
+    position: relative;
+    width: 250px;                  /* adjust size */
+    height: 150px;                 /* adjust size */
+    margin: 20px;
+    background-image: url('assets/leaf.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    text-align: center;
+
+    padding: 20px;
+}
+
+.walk-card p {
+    margin: 0;
+    color: black;                  /* adjust text color if needed */
+    font-weight: bold;
 }
