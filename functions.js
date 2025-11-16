@@ -1,4 +1,3 @@
-// navigate to walks screen when start button is clicked
 const start = document.getElementById('start');
 const WalkInfoPopup = document.getElementById("WalkInfoPopup");
 const openBtn = document.getElementById("AddWalk");
@@ -10,7 +9,7 @@ let username = "";
 function setUsername(){
     const input = document.getElementById('enter-name').value;
     username = input;
-    updateName();
+    localStorage.setItem("username", username);
 }
 
 function updateName(){
@@ -47,6 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mywalks) mywalks.addEventListener('click', navigateToWalkScreen);
     if (walkrecs) walkrecs.addEventListener('click', navigateToRecsScreen);
     if (profile) profile.addEventListener('click', navigateToProfileScreen);
+
+    const name = localStorage.getItem("username");
+    if (name) {
+        document.getElementById('profile-name').innerText = name;
+    }
 });
 
 function openStartPopup(){
@@ -61,10 +65,14 @@ if (start) {
     start.addEventListener('click', openStartPopup);
 }
 
-if (openBtn) {
-    openBtn.addEventListener('click', )
-}
-popupBtn.addEventListener('click', navigateToWalkScreen);
+// if (openBtn) {
+//     openBtn.addEventListener('click', )
+// }
+
+popupBtn.addEventListener('click', () => {
+    setUsername();        
+    navigateToWalkScreen();
+});
 
 
 
