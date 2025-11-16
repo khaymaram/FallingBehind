@@ -102,6 +102,10 @@ body {
     gap: 5px;
 }
 
+.homepage-text{
+    margin-top: 110px;
+}
+
 .homepage-content p {
     font-size: 1.2rem;
     color: #A50715;
