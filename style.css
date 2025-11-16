@@ -345,30 +345,26 @@ body {
 }
 
 
+/* leaf style */
 .walk-card {
     position: relative;
-    width: 250px;                  /* adjust size */
-    height: 150px;                 /* adjust size */
+    width: 250px;                  
+    height: 150px;                 
     margin: 20px;
     background-image: url('assets/leaf.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: "Pixelify Sans", sans-serif;
-    font-size: 14px;
     text-align: center;
-
     padding: 20px;
 }
 
 .walk-card p {
     margin: 0;
-    color: black;                  /* adjust text color if needed */
+    color: black;                  
     font-weight: bold;
     flex-direction: column; 
     justify-content: flex-start;
