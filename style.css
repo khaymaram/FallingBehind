@@ -48,6 +48,7 @@ body {
     height: 100%;
     overflow: auto; 
     background-color: rgba(0, 0, 0, 0.573); 
+    backdrop-filter: blur(6px);       
 }
 
 .popup-content {
