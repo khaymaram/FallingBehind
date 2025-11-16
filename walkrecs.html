@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
-    <title>Walk Recs</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Trail Recommendations</title>
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="walksrecs-content">
-        <div id="navbar">
-            <button class="nav-button" id="mywalks-tab">My Walks</button>
-            <button class="nav-button" id="walkrecs-tab">Walk Recs</button>
-            <button class="nav-button" id="profile-tab">Profile</button>
-            <img src="assets/falling-leaves-2.gif">
-            <img src="assets/falling-leaves-2.gif" id="gif2">
-            <img src="assets/falling-leaves-2.gif">
-        </div>
-        <h1 class="title" id="walkrecs-title">Walk Recs</h1>
+    <div id="navbar">
+        <button class="nav-button" id="mywalks-tab">My Walks</button>
+        <button class="nav-button" id="walkrecs-tab">Walk Recs</button>
+        <button class="nav-button" id="profile-tab">Profile</button>
+        <img src="assets/falling-leaves-2.gif">
+        <img src="assets/falling-leaves-2.gif" id="gif2">
+        <img src="assets/falling-leaves-2.gif">
     </div>
-    <script src="functions.js"></script>
+
+    <div id="walkrecs-content">
+        <h1 class="title" id="walkrecs-title">Walk Recs</h1>
+
+        <div class="location-input-container">
+            <h3>Find Walking Trails Near You</h3>
+            <input type="text" id="location-input" placeholder="Enter your location (e.g., College Park, MD)">
+            <button class="button" id="search-trails-btn">Find Trails</button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            Finding trails near you...
+            <img src="assets/ducks.gif" width="150px">
+        </div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div class="results-container"> 
+            <div id="trails-list" class="trails-list" style="display: none;"></div>
+            <div id="map" style="display: none;"></div>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="trail-finder.js"></script>
 </body>
 </html>
