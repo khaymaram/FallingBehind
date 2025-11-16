@@ -22,13 +22,13 @@ function navigateToWalkScreen() {
     window.location.href = 'walkscreen.html';
 }
 
-openBtn.addEventListener("click", () => {
-  WalkInfoPopup.style.display = "flex";  
-});
+// openBtn.addEventListener("click", () => {
+//   WalkInfoPopup.style.display = "flex";  
+// });
 
-closeBtn.addEventListener("click", () => {
-  WalkInfoPopup.style.display = "none"; 
-});
+// closeBtn.addEventListener("click", () => {
+//   WalkInfoPopup.style.display = "none"; 
+// });
 
 
 function navigateToRecsScreen() {
@@ -53,10 +53,17 @@ function openStartPopup(){
     startPopup.style.display = 'flex';
 }
 
+// function openAddWalkPopup() {
+//     WalkInfoPopup.style.display = 'flex';
+// }
+
 if (start) {
     start.addEventListener('click', openStartPopup);
 }
 
+if (openBtn) {
+    openBtn.addEventListener('click', )
+}
 popupBtn.addEventListener('click', navigateToWalkScreen);
 
 

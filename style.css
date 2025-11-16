@@ -35,6 +35,7 @@ body {
     margin-top: 100px;
     margin-left: 1200px;
 }
+
 .popup{
     display: none;
     position: fixed; /* Stay in place */
@@ -157,3 +158,4 @@ body {
   width: 200px;
   text-align: center;
 }
+
