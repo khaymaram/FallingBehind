@@ -26,8 +26,11 @@ openBtn.addEventListener("click", () => {
     overlay.style.display = "flex";
 });
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", (e) => {
+    e.preventDefault(); 
     overlay.style.display = "none";
+    recordWalk();
+    displayWalks();
 });
 
 function navigateToRecsScreen() {
@@ -59,4 +62,41 @@ function openStartPopup(){
 
 if (start) {
     start.addEventListener('click', openStartPopup);
+}
+
+function recordWalk() {
+    const date = document.getElementById("walkData").value
+    const time = document.getElementById("walkTime").value
+    const distance = document.getElementById("walkDistance").value
+
+    const walk = { /* walk object */
+        date, 
+        time, 
+        distance
+    };
+
+    let walks = JSON.parse(localStorage.getItem("walks")) || [];
+    walks.push(walk)
+    localStorage.setItem("walks", JSON.stringify(walks))
+}
+
+function displayWalks() {
+    const container = document.getElementById("walk-list"); // a div you'll create to hold walks
+    container.innerHTML = ""; // clear current walks
+
+    let walks = JSON.parse(localStorage.getItem("walks")) || [];
+
+    walks.forEach((walk, index) => {
+        const card = document.createElement("div");
+        card.classList.add("walk-card");
+
+        card.innerHTML = `
+            <h3>Walk ${index + 1}</h3>
+            <p>Date: ${walk.date}</p>
+            <p>Time: ${walk.time}</p>
+            <p>Distance: ${walk.distance}</p>
+        `;
+
+        container.appendChild(card);
+    });
 }
