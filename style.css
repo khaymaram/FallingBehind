@@ -1,6 +1,7 @@
 /* overall style */
 html{
     font-family: 'Pixelify Sans';
+    font-size: 16px;
 }
 body {
     background-image: url('assets/home-bg.jpg');
@@ -151,11 +152,17 @@ body {
     font-size: 40px;
 }
 
-.popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 200px;
-  text-align: center;
+/* for the background after add walk pop up appears */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);  
+    backdrop-filter: blur(6px);       
+    display: none;                    
+    justify-content: center;
+    align-items: center;
+    z-index: 10;                    
 }
-
