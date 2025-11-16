@@ -45,6 +45,7 @@ function navigateToProfileScreen() {
     window.location.href = 'profile.html';
 }
 
+// creates walk object and adds it to the list of walks
 function recordWalk() {
     const date = document.getElementById("walkDate").value;
     const time = document.getElementById("walkTime").value;
@@ -64,15 +65,18 @@ function recordWalk() {
 function displayWalks() {
     const container = document.getElementById("walk-list");
     if (!container) return;
-    
     container.innerHTML = "";
-
     let walks = JSON.parse(localStorage.getItem("walks")) || [];
-
-    walks.forEach((walk) => {
+    // list of xpositions as an attempt to look sporadic but still in a neat order
+    const xPositions = ["81%", "10%", "46%", "63.5%", "28.5%", "73%", "20%", "55%", "36%"]
+    walks.forEach((walk, i) => {
         const card = document.createElement("div");
         card.classList.add("walk-card");
-
+        const patternIndex = i % xPositions.length;
+        const x = xPositions[patternIndex];
+        const y = patternIndex * 1 + Math.floor(i / 5) * 60+ (i * 40);      
+        card.style.left = x;
+        card.style.top = y + "px";
         card.innerHTML = `
             <div class="walk-text">
                 <p>Date: ${walk.date}</p>
@@ -80,7 +84,6 @@ function displayWalks() {
                 <p>Distance: ${walk.distance}</p>
             </div>
         `;
-
         container.appendChild(card);
     });
 }
