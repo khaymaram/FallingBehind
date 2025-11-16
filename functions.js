@@ -56,6 +56,57 @@ function updateProgressBar() {
     } else if (congratsElement) {
         congratsElement.classList.remove('show');
     }
+    updateWalkStats();
+}
+
+// Update walk statistics
+function updateWalkStats() {
+    const walks = JSON.parse(localStorage.getItem("walks")) || [];
+    
+    // Count total walks
+    const totalWalks = walks.length;
+    
+    // Calculate total time (assuming time is stored as "30 min" format)
+    const totalMinutes = walks.reduce((sum, walk) => {
+        const timeStr = walk.time || "0";
+        const minutes = parseInt(timeStr.match(/\d+/)?.[0] || 0);
+        return sum + minutes;
+    }, 0);
+    
+    const totalWalksEl = document.getElementById('total-walks');
+    const totalTimeEl = document.getElementById('total-time');
+    
+    if (totalWalksEl) totalWalksEl.textContent = totalWalks;
+    if (totalTimeEl) totalTimeEl.textContent = totalMinutes;
+}
+
+// Edit goal functionality
+function openEditGoalPopup() {
+    const editGoalPopup = document.getElementById('edit-goal-popup');
+    const newGoalInput = document.getElementById('new-goal');
+    const currentGoal = localStorage.getItem("goal") || "100";
+    
+    if (newGoalInput) newGoalInput.value = currentGoal;
+    if (editGoalPopup) editGoalPopup.style.display = "flex";
+}
+
+function closeEditGoalPopup() {
+    const editGoalPopup = document.getElementById('edit-goal-popup');
+    if (editGoalPopup) editGoalPopup.style.display = "none";
+}
+
+function saveNewGoal() {
+    const newGoalInput = document.getElementById('new-goal');
+    const newGoal = newGoalInput.value;
+    
+    if (newGoal && parseFloat(newGoal) > 0) {
+        localStorage.setItem("goal", newGoal);
+        goal = newGoal;
+        updateProgressBar();
+        closeEditGoalPopup();
+    } else {
+        alert("Please enter a valid goal!");
+    }
 }
 
 // PAGE NAVIGATION
@@ -172,5 +223,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (storedGoal) {
         goal = storedGoal;
         updateProgressBar(); // Update progress bar on page load
+    }
+
+    // EDIT GOAL BUTTON
+    const editGoalBtn = document.getElementById('edit-goal-btn');
+    const saveGoalBtn = document.getElementById('save-goal-btn');
+    const cancelGoalBtn = document.getElementById('cancel-goal-btn');
+    
+    if (editGoalBtn) {
+        editGoalBtn.addEventListener('click', openEditGoalPopup);
+    }
+    
+    if (saveGoalBtn) {
+        saveGoalBtn.addEventListener('click', saveNewGoal);
+    }
+    
+    if (cancelGoalBtn) {
+        cancelGoalBtn.addEventListener('click', closeEditGoalPopup);
     }
 });
