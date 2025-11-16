@@ -4,6 +4,7 @@ const openBtn = document.getElementById("AddWalk");
 const closeBtn = document.getElementById("RecordWalk");
 const startPopup = document.getElementById('start-popup');
 const popupBtn = document.getElementById('popup-button');
+const overlay = document.getElementById("WalkOverlay");
 let username = "";
 
 function setUsername(){
@@ -21,14 +22,13 @@ function navigateToWalkScreen() {
     window.location.href = 'walkscreen.html';
 }
 
-// openBtn.addEventListener("click", () => {
-//   WalkInfoPopup.style.display = "flex";  
-// });
+openBtn.addEventListener("click", () => {
+    overlay.style.display = "flex";
+});
 
-// closeBtn.addEventListener("click", () => {
-//   WalkInfoPopup.style.display = "none"; 
-// });
-
+closeBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+});
 
 function navigateToRecsScreen() {
     window.location.href = 'walkrecs.html';
@@ -57,26 +57,6 @@ function openStartPopup(){
     startPopup.style.display = 'flex';
 }
 
-// function openAddWalkPopup() {
-//     WalkInfoPopup.style.display = 'flex';
-// }
-
 if (start) {
     start.addEventListener('click', openStartPopup);
 }
-
-// if (openBtn) {
-//     openBtn.addEventListener('click', )
-// }
-
-popupBtn.addEventListener('click', () => {
-    setUsername();        
-    navigateToWalkScreen();
-});
-
-
-
-
-
-
-
