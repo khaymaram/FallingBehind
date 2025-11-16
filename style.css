@@ -225,7 +225,7 @@ body {
     align-items: flex-start;
     font-size: 1em;
     margin-left: 1em;
-    gap: 25px;
+    gap: 15px;
 }
 
 .profile-row {
@@ -342,6 +342,56 @@ body {
 
 .edit-goal-btn:hover {
     transform: scale(1.2);
+}
+
+/* Badge Styles */
+#badge-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 80px;
+    margin-top: 5px;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;  /* Changed from cover to contain */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;  /* Changed from 50% to 0 - no cropping */
+    animation: badgeAppear 0.5s ease;
+    position: relative;
+}
+
+.badge-icon.locked {
+    opacity: 0.3;
+    filter: grayscale(100%) brightness(0.5);
+}
+
+.badge-label {
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+@keyframes badgeAppear {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
 }
 
 
