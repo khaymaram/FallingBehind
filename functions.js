@@ -6,19 +6,32 @@ const startPopup = document.getElementById('start-popup');
 const popupBtn = document.getElementById('popup-button');
 
 let username = "";
+let goal = "";
 
 // Save username
 function setUsername(){
     const input = document.getElementById('enter-name').value;
     username = input;
     localStorage.setItem("username", username);
-    updateName();  // <-- You forgot to update after saving
+    updateName();  
+}
+
+function setGoal(){
+    const input = document.getElementById('enter-goal').value;
+    goal = input;
+    localStorage.setItem("goal", goal);
+    updateName();  
 }
 
 // Apply username to the profile page
 function updateName(){
     const nameBox = document.getElementById('profile-name');
     if (nameBox) nameBox.innerText = username;
+}
+
+function updateGoal(){
+    const goalBox = document.getElementById('profile-goal');
+    if (goalBox) goalBox.innerText = `Goal: ${goal} miles`;
 }
 
 // PAGE NAVIGATION
@@ -57,6 +70,7 @@ if (document.getElementById('start')) {
 if (popupBtn) {
     popupBtn.addEventListener('click', () => {
         setUsername();     // Save name
+        setGoal();
         navigateToWalkScreen();  // Move to next page
     });
 }
@@ -78,6 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (storedName) {
         username = storedName;
         updateName();
+    }
+
+    const storedGoal = localStorage.getItem("goal");
+    if (storedGoal) {
+        goal = storedGoal;
+        updateGoal();
     }
 });
 
