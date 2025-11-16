@@ -14,6 +14,7 @@ body {
 .title {
     font-size: 70px;
     color: #A50715;
+    margin-bottom: -15px;
 }
 
 .button {
@@ -39,26 +40,26 @@ body {
 
 .popup{
     display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
     background-color: rgba(0, 0, 0, 0.573); 
 }
 
 .popup-content {
     background-color: #A50715;
     color: white;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: none;
     border-radius: 18px;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 500px; /* Optional: maximum width */
-    position: relative; /* For positioning the close button */
+    width: 80%; 
+    max-width: 500px; 
+    position: relative; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,21 +94,32 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;  
+    gap: 5px;
+}
+
+.homepage-content p {
+    font-size: 1.2rem;
+    color: #A50715;
+    font-weight: 600;
 }
 
 
 /* my walks style */
-#navbar{
-    margin-top: -50px;
-    width: 150px;
-    height: 110%;
-    background-color: #A50715;
+
+
+#navbar {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100vh;
+    background-color: #A50715;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 
 .nav-button{
     color: white;
@@ -165,4 +177,46 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 10;                    
+}
+.popup-content-addwalk {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+/* profile style */
+#profile-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card {
+    margin-top: 2em;
+    position: relative; 
+    background-color: #C0392B;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 18px;
+    width: 30%; 
+    max-width: 500px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1em;
+    margin-left: 1em;
+}
+
+.profile-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;    
+    gap: 15px;
 }
